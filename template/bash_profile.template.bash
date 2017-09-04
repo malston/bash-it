@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export BASH_IT_CUSTOM="/Users/malston/bash_it_custom"
+
 # Path to the bash it configuration
 export BASH_IT="{{BASH_IT}}"
 
@@ -12,7 +14,7 @@ export BASH_IT_THEME='bobby'
 # export BASH_IT_REMOTE='bash-it'
 
 # Your place for hosting Git repos. I use this for private repos.
-export GIT_HOSTING='git@git.domain.com'
+export GIT_HOSTING='git@github.com:malston'
 
 # Don't check mail when opening terminal.
 unset MAILCHECK
@@ -50,3 +52,22 @@ export SCM_CHECK=true
 
 # Load Bash It
 source "$BASH_IT"/bash_it.sh
+
+export HOMEBREW_GITHUB_API_TOKEN={{GITHUB_API_TOKEN}}
+
+# Move this into alias file
+alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+
+# sudo chown -R $(whoami):admin /usr/local
+
+export NVM_DIR="/Users/malston/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+[ -f ~/.bashrc ] && source ~/.bashrc
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+unset ${!DOCKER_*}
+
+eval "$(direnv hook bash)"
